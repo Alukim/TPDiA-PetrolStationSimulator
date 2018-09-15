@@ -1,0 +1,1 @@
+dotnet PetrolStation.View.dll

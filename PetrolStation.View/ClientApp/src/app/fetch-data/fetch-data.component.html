@@ -1,0 +1,20 @@
+<h1>Petrol stations</h1>
+
+<p *ngIf="!petrolStations"><em>Loading...</em></p>
+
+<table class='table' *ngIf="petrolStations">
+  <thead>
+    <tr>
+      <th>Petrol station id</th>
+      <th>Petrol station name</th>
+      <th>Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let petrolStation of petrolStations">
+      <td>{{ petrolStation.id }}</td>
+      <td>{{ petrolStation.name }}</td>
+      <td><button [routerLink]="['/details', petrolStation.id]">Details</button></td>
+    </tr>
+  </tbody>
+</table>

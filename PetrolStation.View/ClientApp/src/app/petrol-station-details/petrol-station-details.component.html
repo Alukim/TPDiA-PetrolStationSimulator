@@ -1,0 +1,95 @@
+<h1>Petrol stations</h1>
+
+<h2>Actual time on Petrol station: {{petrolStation.time}}</h2>
+
+<p *ngIf="!petrolStation"><em>Loading...</em></p>
+
+<table class='table' *ngIf="petrolStation">
+  <thead>
+    <tr>
+      <th>Petrol station id</th>
+      <th>Petrol station name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{ petrolStation.id }}</td>
+      <td>{{ petrolStation.name }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<div *ngFor="let tank of petrolStation.tanks">
+  <h1>Tank - {{tank.id}}</h1>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>Tank id</th>
+        <th>MaximumVolume</th>
+        <th>CurrentVolume</th>
+        <th>PetrolTemperature</th>
+        <th>TankHigh</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ tank.id }}</td>
+        <td>{{ tank.maximumVolume }}</td>
+        <td>{{ tank.currentVolume }}</td>
+        <td>{{ tank.petrolTemperature }}</td>
+        <td>{{ tank.tankHigh }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Nozzles</h3>
+
+  <table class='table' *ngFor="let nozzle of tank.nozzleResponses">
+    <thead>
+      <tr>
+        <th>Nozzle id</th>
+        <th>LastTransactionVolume</th>
+        <th>TotalStolenPetrolAmount</th>
+        <th>LastStolenPetrolAmount</th>
+        <th>TotalPetrolAmount</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ nozzle.id }}</td>
+        <td>{{ nozzle.lastTransactionVolume }}</td>
+        <td>{{ nozzle.totalStolenPetrolAmount }}</td>
+        <td>{{ nozzle.lastStolenPetrolAmount }}</td>
+        <td>{{ nozzle.totalPetrolAmount }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div>
+  <h1>Reports</h1>
+  <button (click)="getReport()">Generate Report to Excel</button>
+
+  <table class='table' *ngFor="let report of petrolStation.raports">
+      <thead>
+        <tr>
+          <th>Tank id</th>
+          <th>Nozzle id</th>
+          <th>Time stamp</th>
+          <th>Status</th>
+          <th>Report</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{ report.tankId }}</td>
+          <td>{{ report.nozzleId }}</td>
+          <td>{{ report.timeStamp }}</td>
+          <td>{{ report.status }}</td>
+          <td>{{ report.report }}</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+
+
