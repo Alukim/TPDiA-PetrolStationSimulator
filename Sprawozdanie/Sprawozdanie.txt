@@ -1,0 +1,32 @@
+Program przedstawiony na pierwszych zajêciach laboratoryjnych.
+
+System symuluj¹cy prace stacji paliw.
+
+LINK do repozytorium: https://github.com/Alukim/TPDiA-PetrolStationSimulator
+
+Specyfikacja wewnêtrzna:
+
+Symulator zosta³ napisany w jêzyku C# z wykorzystaniem platformy .NET Core, 
+pozwalaj¹cej uruchamiaæ aplikacje w wielu systemach. 
+
+Aplikacja zosta³a podzielona na dwie g³ówne czêœci: 
+	- Symulator - odpowiedzialny za logikê zwi¹zan¹ z symulacj¹,
+zapis informacji do bazy danych oraz wysy³aniem zdarzeñ zwi¹zanych z prac¹ symulatora,
+	- Widok - odpowiedzialny za przetwarzanie i wyœwietlanie danych otrzymanych
+ze zdarzeñ publikowanych przez symulator 
+
+Do przechowywania danych wykorzystujemy dokumentow¹ bazê danych Elasticsearch,
+a do propagacji zdarzeñ wykorzystujemy szynê danych Apache Kafka. 
+
+Aby móc uruchomiæ aplikacje lokalnie nale¿y: 
+
+1. .NET Core SDK (v2.1.3 oraz 2.1.2)
+2. Elasticsearch (v5.6.9)
+3. Apache Kafka (v0.11.0.1)
+4. Apache Zookeeper (v3.4.9)
+
+Specyfikacja zewnêtrzna:
+
+Symulator sk³ada siê z dwóch czêœci, bêd¹cych osobnymi aplikacjami:
+czêœæ serwerowa, bêd¹ca symulatorem i Ÿród³em danych oraz prosty widok, 
+przedstawiaj¹cy aktualny stan symulatora na podstawie otrzymywanych zdarzeñ
